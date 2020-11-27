@@ -1,6 +1,7 @@
 ---
 title: "create_scm"
 output: html_document
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
@@ -15,7 +16,7 @@ library(Rgraphviz)
 
 ```{r}
 raw_data <- read.csv('data/compas-scores-two-years.csv')
-raw_data
+#head(raw_data)
 ```
 
 
@@ -36,11 +37,7 @@ dplyr::select(sex, age_cat, race
 mutate(total_juv_counts = juv_fel_count + juv_misd_count + juv_other_count) %>%
 mutate(prior_adult_counts = priors_count - total_juv_counts) %>%
 filter(prior_adult_counts > -1)
-df
-```
-
-```{r}
-colnames(df)
+#head(df)
 ```
 
 ```{r}
@@ -51,15 +48,10 @@ mutate(prior_adult_counts=prior_adult_counts/max(prior_adult_counts)) %>%
   mutate(juv_other_count=juv_other_count/max(total_juv_counts)) %>%
   mutate(two_year_recid = factor(two_year_recid)) %>%
   select(-c('priors_count','total_juv_counts'))
-df
+head(df)
 ```
 
 ```{r}
-#net_str <- "[is_recid|age:juv_fel_count:juv_misd_count:priors_count:c_charge_degree][c_charge_degree|race:sex][age][juv_fel_count][juv_misd_count][priors_count][race][sex]"
-# net_str <- "[two_year_recid|race:prior_adult_counts:c_charge_degree]"
-# net <- model2network(net_str)
-# graphviz.plot(net)
-
 nodes = c("race","sex","historic","age_cat","juv_fel_count","juv_misd_count","juv_other_count","prior_adult_counts","c_charge_degree","two_year_recid")
 e = empty.graph(nodes)
 modelstring(e) = "[historic][sex][race|historic][age_cat][juv_fel_count|race:age_cat:sex][juv_misd_count|race:sex:age_cat][juv_other_count|race:sex:age_cat][prior_adult_counts|sex:juv_fel_count:juv_misd_count:juv_other_count:age_cat][c_charge_degree|sex:juv_fel_count:juv_misd_count:juv_other_count:age_cat][two_year_recid|race:sex:historic:juv_fel_count:juv_misd_count:juv_other_count:prior_adult_counts:c_charge_degree]"
@@ -69,9 +61,11 @@ graphviz.plot(dag)
 
 
 ```{r}
-non_historic_dag <- remove.node(dag,"historic") #%>%
-#remove.node("c_charge_degree")
-fitted_dag = bn.fit(x = non_historic_dag, data = df
-)
-class(fitted_dag)
+# non_historic_dag <- remove.node(dag,"historic") #%>%
+# #remove.node("c_charge_degree")
+# fitted_dag = bn.fit(x = non_historic_dag, data = df
+# )
+# class(fitted_dag)
+
+# Error in check.arcs.against.assumptions(bn$arcs, data, "mi-cg") : arc juv_fel_count -> c_charge_degree violates the assumptions of the model.
 ```
