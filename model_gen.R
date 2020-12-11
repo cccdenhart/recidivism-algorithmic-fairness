@@ -7,17 +7,18 @@ library(bnlearn)
 library(Rgraphviz)
 
 # read in simplified compas data
-df <- read.csv('data/compas-scores-two-years-short.csv', stringsAsFactors=TRUE)
+#df <- read.csv('data/compas-scores-two-years_short.csv', stringsAsFactors=TRUE)
+df <- read.csv('data/compas-scores-two-years_short-priors_count.csv', stringsAsFactors=TRUE)
 
 df <- df %>%
   mutate(two_year_recid = factor(two_year_recid)) %>%
   select(0:ncol(df))
 
-biased_df <- read.csv('data/compas-scores-two-years-short.csv', stringsAsFactors=TRUE) 
-
-biased_df <- biased_df %>%
-  mutate(two_year_recid = factor(two_year_recid)) %>%
-  select(0:ncol(df))
+# biased_df <- read.csv('data/compas-scores-two-years-short.csv', stringsAsFactors=TRUE) 
+# 
+# biased_df <- biased_df %>%
+#   mutate(two_year_recid = factor(two_year_recid)) %>%
+#   select(0:ncol(df))
 
 nodes = c("race", "sex", "age_cat", "c_charge_degree", "two_year_recid")
 
@@ -71,17 +72,17 @@ write.csv(model3$two_year_recid$prob, "data/model3_two_year_recid.csv", row.name
 
 
 # ==========================================================================================
-# model 2
+# model 4
 
-e = empty.graph(nodes)
-modelstring(e) = "[race][sex][age_cat][c_charge_degree|sex:age_cat][two_year_recid|c_charge_degree]"
-dag = model2network(modelstring(e), ordering = nodes)
-graphviz.plot(dag)
-
-model3 = bn.fit(x = dag, data = biased_df)
-
-write.csv(model3$race$prob, "data/model4_race.csv", row.names = TRUE)
-write.csv(model3$sex$prob, "data/model4_sex.csv", row.names = TRUE)
-write.csv(model3$age_cat$prob, "data/model4_age_cat.csv", row.names = TRUE)
-write.csv(model3$c_charge_degree$prob, "data/model4_c_charge_degree.csv", row.names = TRUE)
-write.csv(model3$two_year_recid$prob, "data/model4_two_year_recid.csv", row.names = TRUE)
+# e = empty.graph(nodes)
+# modelstring(e) = "[race][sex][age_cat][c_charge_degree|sex:age_cat][two_year_recid|c_charge_degree]"
+# dag = model2network(modelstring(e), ordering = nodes)
+# graphviz.plot(dag)
+# 
+# model3 = bn.fit(x = dag, data = biased_df)
+# 
+# write.csv(model3$race$prob, "data/model4_race.csv", row.names = TRUE)
+# write.csv(model3$sex$prob, "data/model4_sex.csv", row.names = TRUE)
+# write.csv(model3$age_cat$prob, "data/model4_age_cat.csv", row.names = TRUE)
+# write.csv(model3$c_charge_degree$prob, "data/model4_c_charge_degree.csv", row.names = TRUE)
+# write.csv(model3$two_year_recid$prob, "data/model4_two_year_recid.csv", row.names = TRUE)
