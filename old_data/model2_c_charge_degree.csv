@@ -1,0 +1,25 @@
+"","c_charge_degree","race","sex","age_cat","Freq"
+"1","F","African-American","Female","25 - 45",0.511392405063291
+"2","M","African-American","Female","25 - 45",0.488607594936709
+"3","F","Caucasian","Female","25 - 45",0.41747572815534
+"4","M","Caucasian","Female","25 - 45",0.58252427184466
+"5","F","African-American","Male","25 - 45",0.692051139521957
+"6","M","African-American","Male","25 - 45",0.307948860478043
+"7","F","Caucasian","Male","25 - 45",0.528414755732802
+"8","M","Caucasian","Male","25 - 45",0.471585244267198
+"9","F","African-American","Female","Greater than 45",0.488636363636364
+"10","M","African-American","Female","Greater than 45",0.511363636363636
+"11","F","Caucasian","Female","Greater than 45",0.345029239766082
+"12","M","Caucasian","Female","Greater than 45",0.654970760233918
+"13","F","African-American","Male","Greater than 45",0.724696356275304
+"14","M","African-American","Male","Greater than 45",0.275303643724696
+"15","F","Caucasian","Male","Greater than 45",0.471600688468158
+"16","M","Caucasian","Male","Greater than 45",0.528399311531842
+"17","F","African-American","Female","Less than 25",0.289940828402367
+"18","M","African-American","Female","Less than 25",0.710059171597633
+"19","F","Caucasian","Female","Less than 25",0.252873563218391
+"20","M","Caucasian","Female","Less than 25",0.747126436781609
+"21","F","African-American","Male","Less than 25",0.352862849533955
+"22","M","African-American","Male","Less than 25",0.647137150466045
+"23","F","Caucasian","Male","Less than 25",0.323432343234323
+"24","M","Caucasian","Male","Less than 25",0.676567656765677
