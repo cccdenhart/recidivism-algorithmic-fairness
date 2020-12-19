@@ -20,7 +20,7 @@ We evaluate sevaral scores by Race and/or Gender:
 10) Probability of Necessity and Sufficiency
 
 ## Guide
-The `preprocessing.ipynb` file processes the `compas-scores-two-years.csv` from [Two Year Recitivism Data from ProPublica](https://github.com/propublica/compas-analysis/blob/master/compas-scores-two-years.csv)
+The `preprocessing.ipynb` file processes the `compas-scores-two-years.csv` from [Two Year Recidivism Data from ProPublica](https://github.com/propublica/compas-analysis/blob/master/compas-scores-two-years.csv)
 
 The `model_gen.R` file fits the COMPAS data to a defined model and writes the parameters to csv files.
 
