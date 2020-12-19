@@ -34,11 +34,11 @@ The `models.ipynb` file contains all evaluation code. For each model type:
 - Necessity and sufficiency scores are calculated
 
 ## Conclusions
-1. Expected direct and indirect effects of race were identified on recitivism predictions
-2. Use of Previous Counts introduces racial bias
-3. Unobserved causal relationships from Race to recidivism
-4. Bias against Males was discovered in indirect model
-5. Additional bias against African Americans across gender, but especially among African-American Males
+1. Expected direct and indirect effects of race were identified on recidivism predictions
+2. Use of previous counts introduces racial bias
+3. Unobserved causal relationships from race to recidivism
+4. Bias against males was discovered in indirect model
+5. Additional bias against African-Americans across gender, but especially among African-American males
 
 ## Challenges
 Some of the challenges involved with this project include:
